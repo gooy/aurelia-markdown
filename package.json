@@ -1,9 +1,15 @@
 {
-  "name": "aurelia-markdown-element",
+  "name": "aurelia-markdown",
   "version": "0.0.1",
+  "description": "A custom element that renders markdown",
+  "keywords": [
+    "aurelia",
+    "markdown"
+  ],
+  "author": "Aaike Van Roekeghem <aaikevr@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:gooy/aurelia-markdown-element.git"
+    "url": "git@github.com:gooy/aurelia-markdown.git"
   },
   "main": "markdown.js",
   "directories": {

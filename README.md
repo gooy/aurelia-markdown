@@ -1,4 +1,4 @@
-# Aurelia Markdown Element
+# Aurelia Markdown
 
 A custom element that renders markdown and highlights code blocks with prism.
 
