@@ -4,7 +4,7 @@ A custom element that renders markdown and highlights code blocks with prism.
 
 ## Installation
 
-    jspm install gooy/aurelia-markdown
+    jspm install github:gooy/aurelia-markdown
 
 ## Usage
    
