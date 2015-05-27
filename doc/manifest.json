@@ -1,0 +1,13 @@
+{
+  "title": "Aurelia Markdown",
+  "github": "gooy/aurelia-markdown",
+  "rootDir": ".",
+  "files": [
+    "index.md",
+    "CHANGELOG.md"
+  ],
+  "links": [
+    ["View on Github", "http://github.com/gooy/aurelia-markdown"],
+    ["Report an issue", "http://github.com/gooy/aurelia-markdown/issues"]
+  ]
+}
