@@ -74,7 +74,6 @@
       "lib": "dist"
     },
     "dependencies": {
-      "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@master",
       "prism": "github:PrismJS/prism@master",
       "showdown": "github:showdownjs/showdown@^0.5.0"
     },
