@@ -57,6 +57,15 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
             try {
               for (var _iterator = codes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var node = _step.value;
+
+                var c = node.className;
+                node.classList.remove(c);
+                node.classList.add('language-' + c);
+
+                var pre = node.parentNode;
+                pre.classList.remove(c);
+                pre.classList.add('language-' + c);
+
                 prism.highlightElement(node);
               }
             } catch (err) {

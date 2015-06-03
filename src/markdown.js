@@ -2,6 +2,7 @@ import {bindable,noView,useView,useShadowDOM,skipContentProcessing} from 'aureli
 import showdown from 'showdown';
 import prism from 'prism';
 
+
 @skipContentProcessing
 @noView
 export class MarkdownCustomElement {
@@ -19,8 +20,18 @@ export class MarkdownCustomElement {
 
   valueChanged(newValue){
     this.root.innerHTML = this.converter.makeHtml(dedent(newValue));
-    let codes = this.root.querySelectorAll('pre code');
-    for(let node of codes) prism.highlightElement(node);
+    var codes = this.root.querySelectorAll('pre code');
+    for(var node of codes) {
+      var c = node.className;
+      node.classList.remove(c);
+      node.classList.add("language-"+c);
+
+      var pre = node.parentNode;
+      pre.classList.remove(c);
+      pre.classList.add("language-"+c);
+
+      prism.highlightElement(node);
+    }
   }
 }
 
