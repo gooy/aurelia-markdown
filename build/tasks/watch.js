@@ -6,8 +6,7 @@ var dirs = gulp.pkg.directories;
  */
 gulp.task('watch', function() {
   //app files
-  gulp.watch(dirs.lib+"/**/*.js", ['jspm-link']).on('change', reportChange);
-
+  gulp.watch(dirs.lib+"/**/*", ['jspm-link']).on('change', reportChange);
 });
 
 /**

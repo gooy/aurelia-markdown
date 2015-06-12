@@ -18,12 +18,31 @@ var dirs = gulp.pkg.directories;
  */
 gulp.task('build-system', function () {
   return gulp.src(dirs.lib+"/**/*.js")
-  .pipe(plumber())
-  .pipe(changed(dirs.build, {extension: '.js'}))
   .pipe(sourcemaps.init())
   .pipe(babel(assign({}, compilerOptions, {modules:'system'})))
   .pipe(sourcemaps.write("."))
-  .pipe(gulp.dest(dirs.build));
+  .pipe(gulp.dest(dirs.build + '/system'));
+});
+
+gulp.task('build-es6', function () {
+  return gulp.src(dirs.lib+"/**/*.js")
+  .pipe(gulp.dest(dirs.build + '/es6'));
+});
+
+gulp.task('build-commonjs', function () {
+  return gulp.src(dirs.lib+"/**/*.js")
+  .pipe(sourcemaps.init())
+  .pipe(babel(assign({}, compilerOptions, {modules:'common'})))
+  .pipe(sourcemaps.write("."))
+  .pipe(gulp.dest(dirs.build + '/commonjs'));
+});
+
+gulp.task('build-amd', function () {
+  return gulp.src(dirs.lib+"/**/*.js")
+  .pipe(sourcemaps.init())
+  .pipe(babel(assign({}, compilerOptions, {modules:'amd'})))
+  .pipe(sourcemaps.write("."))
+  .pipe(gulp.dest(dirs.build + '/amd'));
 });
 
 /**
@@ -50,7 +69,7 @@ gulp.task('clean-dist', function() {
 gulp.task('build', function(done) {
   return runSequence(
     'clean-dist',
-    ['build-system','build-html'],
+    ['build-es6', 'build-commonjs', 'build-amd', 'build-system','build-html'],
     done
   );
 });

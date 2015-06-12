@@ -1,4 +1,6 @@
 System.register(["./markdown"], function (_export) {
+  "use strict";
+
   _export("configure", configure);
 
   function configure(aurelia) {
@@ -9,9 +11,7 @@ System.register(["./markdown"], function (_export) {
     setters: [function (_markdown) {
       _export("MarkdownCustomElement", _markdown.MarkdownCustomElement);
     }],
-    execute: function () {
-      "use strict";
-    }
+    execute: function () {}
   };
 });
 //# sourceMappingURL=index.js.map
