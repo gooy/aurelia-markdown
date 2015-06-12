@@ -54,6 +54,7 @@ var MarkdownCustomElement = (function () {
   }, {
     key: 'valueChanged',
     value: function valueChanged(newValue) {
+      if (!this.root) return;
       this.root.innerHTML = this.converter.makeHtml(dedent(newValue));
       var codes = this.root.querySelectorAll('pre code');
       var _iteratorNormalCompletion = true;

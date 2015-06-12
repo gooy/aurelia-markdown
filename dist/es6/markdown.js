@@ -28,6 +28,7 @@ export class MarkdownCustomElement {
   }
 
   valueChanged(newValue){
+    if(!this.root) return;
     this.root.innerHTML = this.converter.makeHtml(dedent(newValue));
     var codes = this.root.querySelectorAll('pre code');
     for(var node of codes) {
