@@ -11,7 +11,7 @@ export class MarkdownCustomElement {
   static inject = [Element];
   constructor(element){
     this.element = element;
-    this.converter = new showdown.converter();
+    this.converter = new showdown.Converter();
   }
 
   attached(){

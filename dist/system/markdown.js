@@ -42,7 +42,7 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
           _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
 
           this.element = element;
-          this.converter = new showdown.converter();
+          this.converter = new showdown.Converter();
         }
 
         var _MarkdownCustomElement = MarkdownCustomElement;

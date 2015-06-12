@@ -26,7 +26,7 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
       _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
 
       this.element = element;
-      this.converter = new _showdown2['default'].converter();
+      this.converter = new _showdown2['default'].Converter();
     }
 
     var _MarkdownCustomElement = MarkdownCustomElement;
