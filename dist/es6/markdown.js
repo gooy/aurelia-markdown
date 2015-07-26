@@ -1,10 +1,11 @@
-import {bindable,noView,useView,useShadowDOM,skipContentProcessing} from 'aurelia-framework';
+import {bindable,noView,customElement,skipContentProcessing} from 'aurelia-framework';
 import showdown from 'showdown';
 import prism from 'prism';
 
 @skipContentProcessing
+@customElement("markdown")
 @noView
-export class MarkdownCustomElement {
+export class Markdown {
 
   @bindable model = null;
 

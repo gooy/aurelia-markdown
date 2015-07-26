@@ -17,11 +17,11 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
 
   var _prism2 = _interopRequireDefault(_prism);
 
-  var MarkdownCustomElement = (function () {
+  var Markdown = (function () {
     var _instanceInitializers = {};
 
-    function MarkdownCustomElement(element) {
-      _classCallCheck(this, _MarkdownCustomElement);
+    function Markdown(element) {
+      _classCallCheck(this, _Markdown);
 
       _defineDecoratedPropertyDescriptor(this, 'model', _instanceInitializers);
 
@@ -29,9 +29,9 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
       this.converter = new _showdown2['default'].Converter();
     }
 
-    var _MarkdownCustomElement = MarkdownCustomElement;
+    var _Markdown = Markdown;
 
-    _createDecoratedClass(_MarkdownCustomElement, [{
+    _createDecoratedClass(_Markdown, [{
       key: 'attached',
       value: function attached() {
         this.root = this.element.shadowRoot || this.element;
@@ -98,12 +98,13 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
       enumerable: true
     }], _instanceInitializers);
 
-    MarkdownCustomElement = (0, _aureliaFramework.noView)(MarkdownCustomElement) || MarkdownCustomElement;
-    MarkdownCustomElement = (0, _aureliaFramework.skipContentProcessing)(MarkdownCustomElement) || MarkdownCustomElement;
-    return MarkdownCustomElement;
+    Markdown = (0, _aureliaFramework.noView)(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.customElement)('markdown')(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.skipContentProcessing)(Markdown) || Markdown;
+    return Markdown;
   })();
 
-  exports.MarkdownCustomElement = MarkdownCustomElement;
+  exports.Markdown = Markdown;
 
   function dedent(str) {
     var match = str.match(/^[ \t]*(?=\S)/gm);
