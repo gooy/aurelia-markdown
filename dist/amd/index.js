@@ -5,10 +5,10 @@ define(["exports", "./markdown"], function (exports, _markdown) {
     value: true
   });
   exports.configure = configure;
-  Object.defineProperty(exports, "MarkdownCustomElement", {
+  Object.defineProperty(exports, "Markdown", {
     enumerable: true,
     get: function get() {
-      return _markdown.MarkdownCustomElement;
+      return _markdown.Markdown;
     }
   });
 

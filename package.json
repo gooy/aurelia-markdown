@@ -6,9 +6,9 @@
     "aurelia",
     "markdown"
   ],
-  "homepage": "http://gooy.github.io/aurelia-animator-velocity",
+  "homepage": "http://gooy.github.io/aurelia-markdown",
   "bugs": {
-    "url": "https://github.com/gooy/aurelia-animator-velocity/issues"
+    "url": "https://github.com/gooy/aurelia-markdown/issues"
   },
   "license": "MIT",
   "author": "Aaike Van Roekeghem <aaikevr@gmail.com>",

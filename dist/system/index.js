@@ -9,7 +9,7 @@ System.register(["./markdown"], function (_export) {
 
   return {
     setters: [function (_markdown) {
-      _export("MarkdownCustomElement", _markdown.MarkdownCustomElement);
+      _export("Markdown", _markdown.Markdown);
     }],
     execute: function () {}
   };

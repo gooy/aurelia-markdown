@@ -7,10 +7,10 @@ exports.configure = configure;
 
 var _markdown = require("./markdown");
 
-Object.defineProperty(exports, "MarkdownCustomElement", {
+Object.defineProperty(exports, "Markdown", {
   enumerable: true,
   get: function get() {
-    return _markdown.MarkdownCustomElement;
+    return _markdown.Markdown;
   }
 });
 

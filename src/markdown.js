@@ -34,12 +34,12 @@ export class Markdown {
     var codes = this.root.querySelectorAll('pre code');
     for(var node of codes) {
       var c = node.className;
-      node.classList.remove(c);
-      node.classList.add("language-"+c);
+      //node.classList.remove(c);
+      node.className = "language-"+c;
 
       var pre = node.parentNode;
-      pre.classList.remove(c);
-      pre.classList.add("language-"+c);
+      //pre.classList.remove(c);
+      pre.className = "language-"+c;
 
       prism.highlightElement(node);
     }
