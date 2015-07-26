@@ -26,9 +26,6 @@
     "jshint": "jshint src task test gulpfile.js"
   },
   "dependencies": {
-
-  },
-  "devDependencies": {
     "jspm": "^0.15.7",
     "gulp-git": "^1.2.4",
     "gulp-bump": "^0.3.1",
