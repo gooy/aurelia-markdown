@@ -2,4 +2,4 @@
 
 A custom element that renders markdown and highlights code blocks with prism.
 
-[Documentation](http://gooy.github.io/aurelia-markdown) | [Demo](http://gooy.github.io/aurelia-markdown)
+[Documentation](http://gooy.github.io/aurelia-markdown)
