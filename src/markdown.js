@@ -1,15 +1,21 @@
-import {bindable,noView,customElement,skipContentProcessing} from 'aurelia-framework';
+import {
+  bindable,
+  noView,
+  customElement,
+  processContent,
+  inject
+} from 'aurelia-framework';
 import showdown from 'showdown';
 import prism from 'prism';
 
-@skipContentProcessing
+@processContent(false)
 @customElement("markdown")
-@noView
+@noView()
+@inject(Element)
 export class Markdown {
 
   @bindable model = null;
 
-  static inject = [Element];
   constructor(element){
     this.element = element;
     this.converter = new showdown.Converter();

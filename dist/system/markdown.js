@@ -1,7 +1,7 @@
 System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
   'use strict';
 
-  var bindable, noView, customElement, skipContentProcessing, showdown, prism, Markdown;
+  var bindable, noView, customElement, processContent, inject, showdown, prism, Markdown;
 
   var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
 
@@ -25,7 +25,8 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
       bindable = _aureliaFramework.bindable;
       noView = _aureliaFramework.noView;
       customElement = _aureliaFramework.customElement;
-      skipContentProcessing = _aureliaFramework.skipContentProcessing;
+      processContent = _aureliaFramework.processContent;
+      inject = _aureliaFramework.inject;
     }, function (_showdown) {
       showdown = _showdown['default'];
     }, function (_prism) {
@@ -43,11 +44,7 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
             return null;
           },
           enumerable: true
-        }], [{
-          key: 'inject',
-          value: [Element],
-          enumerable: true
-        }], _instanceInitializers);
+        }], null, _instanceInitializers);
 
         function Markdown(element) {
           _classCallCheck(this, _Markdown);
@@ -115,9 +112,10 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
         }], null, _instanceInitializers);
 
         var _Markdown = Markdown;
-        Markdown = noView(Markdown) || Markdown;
+        Markdown = inject(Element)(Markdown) || Markdown;
+        Markdown = noView()(Markdown) || Markdown;
         Markdown = customElement("markdown")(Markdown) || Markdown;
-        Markdown = skipContentProcessing(Markdown) || Markdown;
+        Markdown = processContent(false)(Markdown) || Markdown;
         return Markdown;
       })();
 

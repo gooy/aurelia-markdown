@@ -15,6 +15,6 @@ Object.defineProperty(exports, "Markdown", {
 });
 
 function configure(aurelia) {
-  aurelia.globalizeResources("./markdown");
+  aurelia.use.globalResources("./markdown");
 }
 //# sourceMappingURL=index.js.map

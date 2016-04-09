@@ -28,11 +28,7 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
         return null;
       },
       enumerable: true
-    }], [{
-      key: 'inject',
-      value: [Element],
-      enumerable: true
-    }], _instanceInitializers);
+    }], null, _instanceInitializers);
 
     function Markdown(element) {
       _classCallCheck(this, _Markdown);
@@ -100,9 +96,10 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
     }], null, _instanceInitializers);
 
     var _Markdown = Markdown;
-    Markdown = (0, _aureliaFramework.noView)(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.inject)(Element)(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.noView)()(Markdown) || Markdown;
     Markdown = (0, _aureliaFramework.customElement)("markdown")(Markdown) || Markdown;
-    Markdown = (0, _aureliaFramework.skipContentProcessing)(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.processContent)(false)(Markdown) || Markdown;
     return Markdown;
   })();
 

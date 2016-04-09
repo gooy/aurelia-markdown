@@ -13,7 +13,7 @@ define(["exports", "./markdown"], function (exports, _markdown) {
   });
 
   function configure(aurelia) {
-    aurelia.globalizeResources("./markdown");
+    aurelia.use.globalResources("./markdown");
   }
 });
 //# sourceMappingURL=index.js.map
