@@ -7,7 +7,7 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer.call(target); Object.defineProperty(target, key, descriptor); }
+  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
   function dedent(str) {
     var match = str.match(/^[ \t]*(?=\S)/gm);
@@ -34,6 +34,20 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
     execute: function () {
       Markdown = (function () {
         var _instanceInitializers = {};
+        var _instanceInitializers = {};
+
+        _createDecoratedClass(Markdown, [{
+          key: 'model',
+          decorators: [bindable],
+          initializer: function initializer() {
+            return null;
+          },
+          enumerable: true
+        }], [{
+          key: 'inject',
+          value: [Element],
+          enumerable: true
+        }], _instanceInitializers);
 
         function Markdown(element) {
           _classCallCheck(this, _Markdown);
@@ -44,9 +58,7 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
           this.converter = new showdown.Converter();
         }
 
-        var _Markdown = Markdown;
-
-        _createDecoratedClass(_Markdown, [{
+        _createDecoratedClass(Markdown, [{
           key: 'attached',
           value: function attached() {
             this.root = this.element.shadowRoot || this.element;
@@ -76,12 +88,12 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
                 var node = _step.value;
 
                 var c = node.className;
-                node.classList.remove(c);
-                node.classList.add('language-' + c);
+
+                node.className = "language-" + c;
 
                 var pre = node.parentNode;
-                pre.classList.remove(c);
-                pre.classList.add('language-' + c);
+
+                pre.className = "language-" + c;
 
                 prism.highlightElement(node);
               }
@@ -100,21 +112,11 @@ System.register(['aurelia-framework', 'showdown', 'prism'], function (_export) {
               }
             }
           }
-        }, {
-          key: 'model',
-          decorators: [bindable],
-          initializer: function () {
-            return null;
-          },
-          enumerable: true
-        }], [{
-          key: 'inject',
-          value: [Element],
-          enumerable: true
-        }], _instanceInitializers);
+        }], null, _instanceInitializers);
 
+        var _Markdown = Markdown;
         Markdown = noView(Markdown) || Markdown;
-        Markdown = customElement('markdown')(Markdown) || Markdown;
+        Markdown = customElement("markdown")(Markdown) || Markdown;
         Markdown = skipContentProcessing(Markdown) || Markdown;
         return Markdown;
       })();
