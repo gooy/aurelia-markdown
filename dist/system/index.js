@@ -4,7 +4,7 @@ System.register(["./markdown"], function (_export) {
   _export("configure", configure);
 
   function configure(aurelia) {
-    aurelia.globalizeResources("./markdown");
+    aurelia.use.globalResources("./markdown");
   }
 
   return {

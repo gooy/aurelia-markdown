@@ -11,7 +11,7 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer.call(target); Object.defineProperty(target, key, descriptor); }
+  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
   var _showdown2 = _interopRequireDefault(_showdown);
 
@@ -19,6 +19,16 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
 
   var Markdown = (function () {
     var _instanceInitializers = {};
+    var _instanceInitializers = {};
+
+    _createDecoratedClass(Markdown, [{
+      key: 'model',
+      decorators: [_aureliaFramework.bindable],
+      initializer: function initializer() {
+        return null;
+      },
+      enumerable: true
+    }], null, _instanceInitializers);
 
     function Markdown(element) {
       _classCallCheck(this, _Markdown);
@@ -29,9 +39,7 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
       this.converter = new _showdown2['default'].Converter();
     }
 
-    var _Markdown = Markdown;
-
-    _createDecoratedClass(_Markdown, [{
+    _createDecoratedClass(Markdown, [{
       key: 'attached',
       value: function attached() {
         this.root = this.element.shadowRoot || this.element;
@@ -61,12 +69,12 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
             var node = _step.value;
 
             var c = node.className;
-            node.classList.remove(c);
-            node.classList.add('language-' + c);
+
+            node.className = "language-" + c;
 
             var pre = node.parentNode;
-            pre.classList.remove(c);
-            pre.classList.add('language-' + c);
+
+            pre.className = "language-" + c;
 
             _prism2['default'].highlightElement(node);
           }
@@ -85,22 +93,13 @@ define(['exports', 'aurelia-framework', 'showdown', 'prism'], function (exports,
           }
         }
       }
-    }, {
-      key: 'model',
-      decorators: [_aureliaFramework.bindable],
-      initializer: function () {
-        return null;
-      },
-      enumerable: true
-    }], [{
-      key: 'inject',
-      value: [Element],
-      enumerable: true
-    }], _instanceInitializers);
+    }], null, _instanceInitializers);
 
-    Markdown = (0, _aureliaFramework.noView)(Markdown) || Markdown;
-    Markdown = (0, _aureliaFramework.customElement)('markdown')(Markdown) || Markdown;
-    Markdown = (0, _aureliaFramework.skipContentProcessing)(Markdown) || Markdown;
+    var _Markdown = Markdown;
+    Markdown = (0, _aureliaFramework.inject)(Element)(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.noView)()(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.customElement)("markdown")(Markdown) || Markdown;
+    Markdown = (0, _aureliaFramework.processContent)(false)(Markdown) || Markdown;
     return Markdown;
   })();
 
